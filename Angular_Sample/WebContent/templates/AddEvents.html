@@ -1,0 +1,35 @@
+<div class="container-fluid">
+	<h3>New Event Details :</h3>
+	<hr/>
+	<div>
+		<form name="newEventForm" >
+			<div class = "col-sm-12">
+				<label for = "eventName" class ="col-sm-1">Name :</label>
+				<input id="eventName" class ="col-sm-3" type="text"  ng-model="event.name" required placeholder="event name here ....">
+			</div> 
+			<div class = "col-sm-12">
+				<label for="eventDate" class ="col-sm-1">Date :</label>
+				<input id="eventDate" class ="col-sm-3" type="text"  ng-model="event.date" required placeholder="start date in MM/DD/YYYY ...." 
+							ng-pattern="/\d\d/\d\d/\d\d\d\d/">
+			</div>
+			<div class = "col-sm-12">
+				<label for="eventTime" class ="col-sm-1">Time :</label>
+				<input id="eventTime" class ="col-sm-3" type="text"  ng-model="event.time" placeholder="time in Hr:Min ....">
+			</div>
+			<div class = "col-sm-12">
+				<label for="eventLocation" class = "col-sm-1">Location :</label>
+				<input id="eventLocation" class ="col-sm-3" type="text"  ng-model="event.address" placeholder="enter event location....">
+				<label for="eventCity" class = "col-sm-1">City :</label>
+				<input id="eventCity" class ="col-sm-3" type="text"  ng-model="event.city" placeholder="city....">
+				<label for="eventState" class = "col-sm-1">State :</label>
+				<input id="eventState" class ="col-sm-3" type="text"  ng-model="event.state" placeholder="state....">
+			</div>
+			<br/>
+			<br/>
+			<div class="col-sm-12">
+				<button class = "btn btn-primary col-sm-1" ng-disabled = "newEventForm.$invalid" ng-click="saveEvent(event , newEventForm)">Save</button>
+				<button class = "btn btn-default col-sm-1" ng-click = "cancelEdit()" >Cancel</button>
+			</div>
+		</form>
+	</div>
+</div>

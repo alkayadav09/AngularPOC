@@ -1,0 +1,42 @@
+<div class="container-fluid">
+	<div >
+		<h3 ng-bind="event.name"></h3></br>   <!--  using ng-bind directive -->
+		<!-- <h3 ng-bind-template="{{event.name}} ,{{event.date}}"></h3></br> -->  <!--  using ng-bind-template directive -->
+		<strong>Date: </strong> {{event.date}}</br>
+		<strong>Time: </strong>{{event.time}}</br>
+		<strong>Location: </strong> {{event.location.address}} ,
+					{{event.location.city}} , {{event.location.state}}</br>
+		<hr/>
+		<strong>Sessions :</strong>
+		<ul class="list-unstyled" >
+			<li ng-repeat = "session in event.sessions">
+				<div class="col-sm-12">
+					<div class="col-sm-1">
+						<div class="panel panel-default">
+							<div class="panel-heading" align="middle"><strong>Vote Here</strong></div>
+							<div align="middle">
+								<button class="votingButton" ng-click="upVoteSession(session)">
+									<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true" ></span>
+								</button>
+								<div>
+									<span class="badge">{{session.upVoteCount}}</span>
+								</div>
+								<button class="votingButton" ng-click="downVoteSession(session)" ng-disabled="session.downVoteBtn">
+									<span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+								</button>
+							</div>
+						</div>
+					</div>
+					{{downVoteBtn}}
+					<div class="col-sm-11">
+						<strong>{{session.name}}</strong></br>
+						<strong>Time: </strong>{{session.time}}</br>
+						<strong>Duration: </strong>{{session.duration}}</br>
+						<p>{{session.topic}}</p>
+					</div>
+				</div>
+			</li>
+		</ul>
+		
+	</div>
+</div>
